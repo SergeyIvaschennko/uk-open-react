@@ -1,0 +1,56 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body, #root {
+    height: 100%;
+    width: 100%;
+}
+
+.welcome-page-content-container {
+    margin: 32px auto 0 auto;
+    padding: 0 112px;
+    display: flex;
+    align-items: center;
+    max-width: 1600px;
+    box-sizing: border-box;
+    /*border: 1px pink solid;*/
+}
+
+.slogan {
+    font-family: 'Racing Sans One', sans-serif;
+    font-size: 90px;
+    font-weight: 600;
+    color: rgb(65, 105, 225);
+    padding: 0;
+    margin: 0;
+    line-height: 1;
+}
+
+.slogan-highlight {
+    font-family: 'Montserrat', sans-serif;
+    font-style: italic;
+    font-weight: 400;
+}
+
+.welcome-page-content-container .space {
+    /*border: 1px solid red;*/
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.movie-covers {
+    width: 345px;
+    height: 569px;
+}
+
+@media (max-width: 1000px) {
+    .welcome-page-content-container {
+        padding: 0 16px; /* Уменьшаем отступы */
+    }
+}
+
