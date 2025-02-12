@@ -10,14 +10,31 @@ html, body, #root {
 }
 
 .welcome-page-content-container {
-    margin: 32px auto 0 auto;
+    max-width: 1600px;
+    margin: 0 auto;
     padding: 0 112px;
     display: flex;
-    align-items: center;
-    max-width: 1600px;
     box-sizing: border-box;
     /*border: 1px pink solid;*/
 }
+
+/* Отдельные классы для разного отступа сверху */
+.logo-container {
+    margin-top: 32px;
+}
+
+.slogan-container {
+    margin-top: 64px;
+    align-items: center;
+}
+
+.grey-container {
+    margin-top: 100px;
+    background-color: rgba(244, 244, 244, 0.5);
+    justify-content: space-between;
+    padding: 32px 112px 32px 112px;
+}
+
 
 .slogan {
     font-family: 'Racing Sans One', sans-serif;
@@ -27,6 +44,7 @@ html, body, #root {
     padding: 0;
     margin: 0;
     line-height: 1;
+    letter-spacing: 2px;
 }
 
 .slogan-highlight {
@@ -43,10 +61,36 @@ html, body, #root {
     justify-content: space-between;
 }
 
+/*для фотки*/
 .movie-covers {
     width: 345px;
     height: 569px;
 }
+
+.harrypotter-search {
+    width: 658px;
+    height: 327px;
+}
+
+
+.Montserrat {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.bold {
+    font-size: 40px;
+    font-weight: 700;
+    color: #1E1E1E;
+}
+
+.medium {
+    margin-top: 12px;
+    font-size: 18px;
+    font-weight: 500;
+    color: #77726e;
+}
+
+
 
 @media (max-width: 1000px) {
     .welcome-page-content-container {

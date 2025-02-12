@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import './Home.css';
 import covers from "../../Pics/Component 46.png"
+import harruPotterSearch from "../../Pics/Component 47.png"
 
 function App() {
     const [isFirstVisit, setIsFirstVisit] = useState(false);
@@ -26,12 +27,12 @@ function App() {
 function WelcomeScreen({ setIsFirstVisit }) {
     return (
         <>
-            <div className="welcome-page-content-container">
+            <div className="welcome-page-content-container logo-container">
                 <div className="logo">
                     <span style={{ color: 'black' }}>uk</span> <span style={{ color: '#4169E1' }}>open</span>
                 </div>
             </div>
-            <div className="welcome-page-content-container">
+            <div className="welcome-page-content-container slogan-container">
                 <div className="space">
                     <div className="slogan">MOVIES</div>
                     <div className="slogan">+</div>
@@ -43,6 +44,17 @@ function WelcomeScreen({ setIsFirstVisit }) {
                 </div>
                 <div className="space">
                     <img src={covers} className="movie-covers" alt="Heart Icon"/>
+                </div>
+            </div>
+            <div className="welcome-page-content-container grey-container">
+                <div className="space">
+                    <div>
+                        <div className="Montserrat bold">Найди фильм или сериал</div>
+                        <div className="Montserrat medium">Более 200 подборок </div>
+                    </div>
+                </div>
+                <div className="space">
+                    <img src={harruPotterSearch} className="harrypotter-search" alt="Heart Icon"/>
                 </div>
             </div>
         </>
