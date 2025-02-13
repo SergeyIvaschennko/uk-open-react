@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import './Home.css';
 import covers from "../../Pics/Component 46.png"
 import harruPotterSearch from "../../Pics/Component 47.png"
+import table from "../../Pics/Component 48.png"
 
 function App() {
     const [isFirstVisit, setIsFirstVisit] = useState(false);
@@ -55,6 +56,22 @@ function WelcomeScreen({ setIsFirstVisit }) {
                 </div>
                 <div className="space">
                     <img src={harruPotterSearch} className="harrypotter-search" alt="Heart Icon"/>
+                </div>
+            </div>
+            <div className="welcome-page-content-container white-container">
+                <div className="space">
+                    <div>
+                        <div className="Montserrat bold">Сначала слова -</div>
+                        <div className="Montserrat bold">потом магия кино!</div>
+                        <div className={"text-space"}>
+                            <div className="Montserrat medium"> Да, мы собрали для тебя слова,
+                                которые <span style={{ color: "#4169E1", fontWeight: "600" }}>встречаются в фильме</span>. Выучи и освой их перед просмотром!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="space">
+                    <img src={table} className="table-pic" alt="Heart Icon"/>
                 </div>
             </div>
         </>
