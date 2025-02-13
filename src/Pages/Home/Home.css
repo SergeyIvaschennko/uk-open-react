@@ -4,6 +4,30 @@
     box-sizing: border-box;
 }
 
+:root {
+    --transport-black: #1E1E1E;
+    --black: black;
+    --white: #FFFFFF;
+    --blue: #4169e1;
+    --grey: #6b6564;
+}
+
+.white {
+    color: var(--white);
+}
+
+.transport-black {
+    color: var(--transport-black);
+}
+
+.black {
+    color: var(--black);
+}
+
+.grey {
+    color: var(--grey);
+}
+
 html, body, #root {
     height: 100%;
     width: 100%;
@@ -36,7 +60,13 @@ html, body, #root {
 }
 
 .white-container {
-    background-color: rgb(255, 255, 255);
+    background-color: var(--white);
+    justify-content: space-between;
+    padding: 72px 112px 72px 112px;
+}
+
+.black-container {
+    background-color: var(--black);
     justify-content: space-between;
     padding: 72px 112px 72px 112px;
 }
@@ -46,7 +76,7 @@ html, body, #root {
     font-family: 'Racing Sans One', sans-serif;
     font-size: 90px;
     font-weight: 600;
-    color: rgb(65, 105, 225);
+    color: var(--blue);
     padding: 0;
     margin: 0;
     line-height: 1;
@@ -96,14 +126,12 @@ html, body, #root {
 .bold {
     font-size: 40px;
     font-weight: 700;
-    color: #1E1E1E;
 }
 
 .medium {
     margin-top: 12px;
     font-size: 18px;
     font-weight: 400;
-    color: #6b6564;
 }
 
 

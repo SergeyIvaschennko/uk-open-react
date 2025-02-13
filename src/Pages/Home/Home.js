@@ -50,8 +50,8 @@ function WelcomeScreen({ setIsFirstVisit }) {
             <div className="welcome-page-content-container grey-container">
                 <div className="space">
                     <div>
-                        <div className="Montserrat bold">Найди фильм или сериал</div>
-                        <div className="Montserrat medium">Более 200 подборок </div>
+                        <div className="Montserrat bold transport-black">Найди фильм или сериал</div>
+                        <div className="Montserrat medium grey">Более 200 подборок </div>
                     </div>
                 </div>
                 <div className="space">
@@ -61,11 +61,26 @@ function WelcomeScreen({ setIsFirstVisit }) {
             <div className="welcome-page-content-container white-container">
                 <div className="space">
                     <div>
-                        <div className="Montserrat bold">Сначала слова -</div>
-                        <div className="Montserrat bold">потом магия кино!</div>
+                        <div className="Montserrat bold transport-black">Сначала слова -</div>
+                        <div className="Montserrat bold transport-black">потом магия кино!</div>
                         <div className={"text-space"}>
-                            <div className="Montserrat medium"> Да, мы собрали для тебя слова,
+                            <div className="Montserrat medium grey"> Да, мы собрали для тебя слова,
                                 которые <span style={{ color: "#4169E1", fontWeight: "600" }}>встречаются в фильме</span>. Выучи и освой их перед просмотром!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="space">
+                    <img src={table} className="table-pic" alt="Heart Icon"/>
+                </div>
+            </div>
+            <div className="welcome-page-content-container black-container">
+                <div className="space">
+                    <div>
+                        <div className="Montserrat bold white">Ready? Let’s watch! -</div>
+                        <div className={"text-space"}>
+                            <div className="Montserrat medium white">
+                                Теперь ты готов к просмотру, а запоминать слова стало намного проще!
                             </div>
                         </div>
                     </div>
