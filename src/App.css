@@ -42,8 +42,10 @@
 
 .logo {
   font-family: 'Montserrat', sans-serif;
-  font-size: 30px;
-  font-weight: 600;
-  color: rgb(0, 0, 0);
+  font-size: 24px;
+  font-weight: 600; /* Semi-bold */
+  font-style: italic; /* Курсив */
+  color: rgb(255, 255, 255);
   text-align: left;
 }
+
