@@ -86,6 +86,8 @@ html, body, #root {
     display: flex;
     box-sizing: border-box;
     /*border: 1px pink solid;*/
+    position: relative;
+    overflow: hidden;
 }
 
 /* Отдельные классы для разного отступа сверху */
@@ -99,7 +101,7 @@ html, body, #root {
 }
 
 .grey-container {
-    margin-top: 100px;
+    /*margin-top: 100px;*/
     background-color: rgba(244, 244, 244, 0.5);
     justify-content: space-between;
     padding: 48px 112px 64px 112px;
@@ -145,6 +147,34 @@ html, body, #root {
 .table-pic {
     width: 658px;
     height: 366px;
+}
+
+.harry-potter-pic {
+    width: 658px;
+    height: 307px;
+}
+
+.stars-pic {
+    width: 882px;
+    height: 283px;
+}
+
+
+.welcome-page-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+.stars-overlay {
+    position: absolute;
+    top: 218px;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 10; /* Поверх всего */
+    pointer-events: none; /* Чтобы не блокировать клики по контенту под ней */
+    padding-left: 45px;
 }
 
 

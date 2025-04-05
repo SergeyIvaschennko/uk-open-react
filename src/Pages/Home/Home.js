@@ -6,6 +6,8 @@ import harruPotterSearch from "../../Pics/Component 47.png"
 import table from "../../Pics/Component 48.png"
 import burn from "../../Pics/bVk1Mfu4XDw.jpg"
 import tryy from "../../Pics/Component 53.png"
+import hp from "../../Pics/Component 54.png"
+import stars from "../../Pics/Component 55.png"
 
 function App() {
     const [isFirstVisit, setIsFirstVisit] = useState(false);
@@ -50,10 +52,6 @@ function WelcomeScreen({ setIsFirstVisit }) {
                                 <div className="bottom-right">the best learning experience</div>
                             </div>
                             <img src={tryy} alt="Main" className="orbit-img" />
-
-
-
-
                         </div>
 
                     {/*<div className="welcome-page-content-container slogan-container">*/}
@@ -72,17 +70,6 @@ function WelcomeScreen({ setIsFirstVisit }) {
                     {/*</div>*/}
 
 
-                    {/*<div className="welcome-page-content-container grey-container">*/}
-                    {/*    <div className="space">*/}
-                    {/*        <div>*/}
-                    {/*            <div className="Montserrat bold transport-black">Найди фильм или сериал</div>*/}
-                    {/*            <div className="Montserrat medium grey">Более 200 подборок </div>*/}
-                    {/*        </div>*/}
-                    {/*    </div>*/}
-                    {/*    <div className="space">*/}
-                    {/*        <img src={harruPotterSearch} className="harrypotter-search" alt="Heart Icon"/>*/}
-                    {/*    </div>*/}
-                    {/*</div>*/}
                     {/*<div className="welcome-page-content-container white-container">*/}
                     {/*    <div className="space">*/}
                     {/*        <div>*/}
@@ -119,11 +106,67 @@ function WelcomeScreen({ setIsFirstVisit }) {
 
                 </div>
             </div>
-            <div className="welcome-page-content-container logo-container">
-                <div className="logo">
-                    <span style={{ color: 'black' }}>uk</span> <span style={{ color: '#4169E1' }}>open</span>
+
+
+            {/*<div className="welcome-page-content-container logo-container">*/}
+            {/*    <div className="logo">*/}
+            {/*        <span style={{ color: 'black' }}>uk</span> <span style={{ color: '#4169E1' }}>open</span>*/}
+            {/*    </div>*/}
+            {/*</div>*/}
+
+            <div className="welcome-page-content-container grey-container">
+                <div className="space">
+                    <div>
+                        <div className="Montserrat bold transport-black">Найди фильм или сериал</div>
+                        <div className="Montserrat medium grey">Более 200 подборок </div>
+                    </div>
+                </div>
+                <div className="space">
+                    <img src={harruPotterSearch} className="harrypotter-search" alt="Heart Icon"/>
                 </div>
             </div>
+
+            <div className="welcome-page-content-container white-container">
+                <div className="space">
+                    <div>
+                        <div className="Montserrat bold transport-black">Сначала слова -</div>
+                        <div className="Montserrat bold transport-black">потом магия кино!</div>
+                        <div className={"text-space"}>
+                            <div className="Montserrat medium grey"> Да, мы собрали для тебя слова,
+                                которые <span style={{ color: "#4169E1", fontWeight: "600" }}>встречаются в фильме</span>. Выучи и освой их перед просмотром!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="space">
+                    <img src={table} className="table-pic" alt="Heart Icon"/>
+                </div>
+            </div>
+
+
+
+            <div className="welcome-page-content-container black-container">
+                <div className="stars-overlay">
+                    <img src={stars} className="stars-pic" alt="Heart Icon"/>
+                </div>
+                <div className="space">
+                    <div>
+                        <div className="Montserrat bold white">Ready? Let’s watch!</div>
+                        <div className={"text-space"}>
+                            <div className="Montserrat medium white">
+                                Теперь ты готов к просмотру, а запоминать слова стало намного проще!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="space">
+                    <img src={hp} className="harry-potter-pic" alt="Heart Icon"/>
+                </div>
+            </div>
+
+
+
+
         </>
     );
 }
