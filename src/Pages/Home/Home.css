@@ -12,6 +12,27 @@
     --grey: #6b6564;
 }
 
+html, body, #root {
+    height: 100%;
+    width: 100%;
+}
+
+/* Типографика и утилиты */
+.Montserrat {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.bold {
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.medium {
+    margin-top: 12px;
+    font-size: 18px;
+    font-weight: 400;
+}
+
 .white {
     color: var(--white);
 }
@@ -28,16 +49,7 @@
     color: var(--grey);
 }
 
-html, body, #root {
-    height: 100%;
-    width: 100%;
-}
-
-
-
-
-
-
+/* Главный контейнер */
 .home-container {
     display: flex;
     justify-content: center;
@@ -53,12 +65,11 @@ html, body, #root {
     overflow: hidden;
 }
 
-
 .background-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: brightness(0.7) blur(20px); /* Затемнение изображения */
+    filter: brightness(0.7) blur(20px);
     transform: scale(1.1);
 }
 
@@ -76,32 +87,99 @@ html, body, #root {
     text-align: center;
 }
 
+.navbar-container {
+    width: 100%;
+}
 
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 112px;
+}
 
+.logo {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    color: white;
+}
 
+.start-button {
+    width: 97px;
+    height: 35px;
+    border-radius: 20px;
+    border: 1px solid white;
+    background-color: transparent;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.slogans-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    width: 100%;
+    max-width: 1600px;
+    padding: 24px 110px;
+}
+
+.top-left {
+    align-self: flex-start;
+    color: #aef;
+    font-family: 'Racing Sans One', sans-serif;
+    font-size: 56px;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: 2px;
+    text-align: left;
+}
+
+.bottom-right {
+    font-family: 'Montserrat', sans-serif;
+    font-style: italic;
+    font-weight: 400;
+    align-self: flex-end;
+    color: #aef;
+    font-size: 50px;
+    width: 450px;
+    text-align: left;
+}
+
+.orbit-img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1140px;
+    height: 749px;
+    z-index: 99;
+}
+
+/* Welcome page containers */
 .welcome-page-content-container {
     max-width: 1600px;
     margin: 0 auto;
     padding: 0 112px;
     display: flex;
     box-sizing: border-box;
-    /*border: 1px pink solid;*/
     position: relative;
     overflow: hidden;
 }
 
-/* Отдельные классы для разного отступа сверху */
 .logo-container {
     margin-top: 32px;
 }
 
-.slogan-container {
-    margin-top: 64px;
-    align-items: center;
-}
-
 .grey-container {
-    /*margin-top: 100px;*/
     background-color: rgba(244, 244, 244, 0.5);
     justify-content: space-between;
     padding: 48px 112px 64px 112px;
@@ -114,15 +192,13 @@ html, body, #root {
 }
 
 .black-container {
-    background-color: var(--black);
     justify-content: space-between;
-    padding: 72px 112px 72px 112px;
+    padding: 72px 112px 150px 112px;
+    width: 100%;
 }
 
-
-
+/* Контент внутри welcome */
 .welcome-page-content-container .space {
-    /*border: 1px solid red;*/
     height: auto;
     display: flex;
     flex-direction: column;
@@ -131,14 +207,10 @@ html, body, #root {
 .welcome-page-content-container .text-space {
     height: auto;
     width: 320px;
+    text-align: left;
 }
 
-/*для фотки*/
-.movie-covers {
-    width: 345px;
-    height: 569px;
-}
-
+/* Изображения */
 .harrypotter-search {
     width: 658px;
     height: 327px;
@@ -159,115 +231,133 @@ html, body, #root {
     height: 283px;
 }
 
-
-.welcome-page-wrapper {
-    position: relative;
-    overflow: hidden;
-}
-
+/* Звёздная подложка */
 .stars-overlay {
     position: absolute;
     top: 218px;
-    width: 100%;
     height: 100%;
     background-repeat: no-repeat;
     background-size: cover;
-    z-index: 10; /* Поверх всего */
-    pointer-events: none; /* Чтобы не блокировать клики по контенту под ней */
-    padding-left: 45px;
+    z-index: 10;
+    pointer-events: none;
 }
 
+/* Вторая секция с затемнённым фоном */
+.imagee-container {
+    width: 100%;
+    height: 1590px;
+    position: relative;
+    overflow: hidden;
 
-
-.Montserrat {
-    font-family: 'Montserrat', sans-serif;
 }
 
-.bold {
-    font-size: 40px;
-    font-weight: 700;
+.backgroundd-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.7) blur(20px);
+    transform: scale(1.1);
 }
 
-.medium {
-    margin-top: 12px;
-    font-size: 18px;
-    font-weight: 400;
-}
-
-.start-button {
-    width: 97px;
-    height: 35px;
-    border-radius: 20px;
-    border: 1px solid white;
-    background-color: transparent;
-    color: white;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 12px;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    text-transform: uppercase;
-}
-
-.orbit-img {
+.overlayy-hard {
     position: absolute;
-    top: 50%;           /* Центрируем по вертикали */
-    left: 50%;          /* Центрируем по горизонтали */
-    transform: translate(-50%, -50%); /* Сдвигаем на половину его ширины и высоты, чтобы точно выровнять */
-    width: 1140px;
-    height: 749px;
-    z-index: 99;
-
-}
-
-
-
-
-.slogans-container {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Размещает элементы сверху и снизу */
-    height: 100vh; /* Заполняет весь экран */
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+/* Текст по дуге */
+.curve-text {
+    margin-top: 45px;
+    width: 907px;
+    height: 157px;
+}
+
+
+.cards-container {
+    display: flex;
+    gap: 16px; /* Увеличиваем пространство между картинками */
+    overflow-x: auto;
     width: 100%;
-    max-width: 1800px;
-    padding: 24px 110px;
+    padding: 16px 0;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
 }
 
-.top-left {
-    align-self: flex-start; /* Прижимает к левому краю */
-    color: #aef;
-    font-family: 'Racing Sans One', sans-serif;
-    font-size: 56px;
-    font-weight: 600;
-    line-height: 1;
-    letter-spacing: 2px;
-    text-align: left;
+.card {
+    flex: 0 0 calc((100% - 64px) / 5); /* 5 картинок, больше пространства между ними */
+    aspect-ratio: 215 / 323; /* Пропорции изображений */
+    background-color: #fff;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    overflow: hidden;
 }
 
-.bottom-right {
-    font-family: 'Montserrat', sans-serif;
-    font-style: italic;
-    font-weight: 400;
-    align-self: flex-end; /* Прижимает к левому краю */
-    color: #aef;
-    font-size: 50px;
-    width: 450px;
-    text-align: left;
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Картинка сохраняет пропорции и не выходит за пределы */
+    display: block;
+}
 
+/* Responsive media queries */
 
-@media (max-width: 1000px) {
-    .welcome-page-content-container {
-        padding: 0 16px; /* Уменьшаем отступы */
+/* Для экранов среднего размера */
+@media (max-width: 1024px) {
+    .card {
+        flex: 0 0 calc((100% - 64px) / 4); /* 4 карточки на экране, больше отступов */
     }
 }
 
-/*@media (min-width: 1800px) {*/
-/*    .slogans-container {*/
-/*        padding: 0 24px;*/
-/*    }*/
-/*}*/
+/* Для экранов меньшего размера */
+@media (max-width: 768px) {
+    .card {
+        flex: 0 0 calc((100% - 48px) / 3); /* 3 карточки на экране */
+    }
+}
 
+/* Для экранов с маленькими размерами */
+@media (max-width: 480px) {
+    .card {
+        flex: 0 0 calc((100% - 32px) / 2); /* 2 карточки на экране */
+    }
+}
+
+
+
+
+
+
+
+/* Scroll Wrapper */
+.scroll-page {
+    overflow-y: auto;
+    position: relative;
+}
+
+/* Адаптив */
+@media (max-width: 1000px) {
+    .welcome-page-content-container {
+        padding: 0 16px;
+    }
+}
