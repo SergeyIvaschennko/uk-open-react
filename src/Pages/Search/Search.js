@@ -8,6 +8,7 @@ import one from "../../Pics/image (2).png";
 import knife from "../../Pics/image (3).png";
 import hole from "../../Pics/image (4).png";
 import ryan from "../../Pics/image (5).png";
+import Heading from "../../Components/Heading/Heading";
 
 
 const Search = () => {
@@ -42,6 +43,62 @@ const Search = () => {
                 </div>
             </div>
 
+
+
+            <Heading
+                mainHeading="Шедевры"
+                subHeading="Лучшие фильмы"
+            />
+            <div className="welcome-page-content-container black-container">
+                <div className="cards-container">
+                    <img src={wof} className="card" alt="Heart Icon"/>
+                    <img src={one} className="card" alt="Heart Icon"/>
+                    <img src={knife} className="card" alt="Heart Icon"/>
+                    <img src={hole} className="card" alt="Heart Icon"/>
+                    <img src={ryan} className="card" alt="Heart Icon"/>
+                </div>
+            </div>
+
+
+
+
+            <Heading
+                mainHeading="24-25"
+                subHeading="Новинки"
+            />
+            <div className="welcome-page-content-container black-container">
+                <div className="cards-container">
+                    <img src={wof} className="card" alt="Heart Icon"/>
+                    <img src={one} className="card" alt="Heart Icon"/>
+                    <img src={knife} className="card" alt="Heart Icon"/>
+                    <img src={hole} className="card" alt="Heart Icon"/>
+                    <img src={ryan} className="card" alt="Heart Icon"/>
+                </div>
+            </div>
+
+
+
+
+            <Heading
+                mainHeading="Невозможно оторваться"
+                subHeading="Лучшие сериалы"
+            />
+            <div className="welcome-page-content-container black-container">
+                <div className="cards-container">
+                    <img src={wof} className="card" alt="Heart Icon"/>
+                    <img src={one} className="card" alt="Heart Icon"/>
+                    <img src={knife} className="card" alt="Heart Icon"/>
+                    <img src={hole} className="card" alt="Heart Icon"/>
+                    <img src={ryan} className="card" alt="Heart Icon"/>
+                </div>
+            </div>
+
+
+
+            <Heading
+                mainHeading="Мир анимации"
+                subHeading="Лучшие мультфильмы"
+            />
             <div className="welcome-page-content-container black-container">
                 <div className="cards-container">
                     <img src={wof} className="card" alt="Heart Icon"/>
