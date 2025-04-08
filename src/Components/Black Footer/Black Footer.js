@@ -1,21 +1,21 @@
 import React from 'react';
-import './Footer.css';
+import './Black Footer.css';
 
-const Footer = () => {
+const BlackFooter = () => {
     return (
-        <div className="footer">
+        <div className="black-footer">
             <div className="footer-container">
-                <div className="footer-logo">uk open</div>
-                <div className="footer-links">About us</div>
-                <div className="footer-links">Payment</div>
-                <div className="footer-links">Support</div>
-                <div className="footer-links">For authors</div>
-                <div className="footer-links">Policy</div>
-                <div className="footer-links">Business</div>
-                <div className="footer-links">Return</div>
+                <div className="black-footer-logo">uk open</div>
+                <div className="black-footer-links">About us</div>
+                <div className="black-footer-links">Payment</div>
+                <div className="black-footer-links">Support</div>
+                <div className="black-footer-links">For authors</div>
+                <div className="black-footer-links">Policy</div>
+                <div className="black-footer-links">Business</div>
+                <div className="black-footer-links">Return</div>
             </div>
             <div className="footer-container">
-                <div className="footer-copyright">© 2025 All rights are reserved</div>
+                <div className="black-footer-copyright">© 2025 All rights are reserved</div>
                 <div className="social-media-container">
                     <img src="https://www.freeiconspng.com/uploads/white-pinterest-logo-png--30.png" alt="Facebook" className="social-icon" />
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Spotify_logo_without_text.svg/2048px-Spotify_logo_without_text.svg.png" alt="Twitter" className="social-icon" />
@@ -27,4 +27,4 @@ const Footer = () => {
     );
 };
 
-export default Footer;
+export default BlackFooter;

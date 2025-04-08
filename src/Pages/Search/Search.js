@@ -9,6 +9,8 @@ import knife from "../../Pics/image (3).png";
 import hole from "../../Pics/image (4).png";
 import ryan from "../../Pics/image (5).png";
 import Heading from "../../Components/Heading/Heading";
+import Footer from "../../Components/Footer/Footer";
+import BlackFooter from "../../Components/Black Footer/Black Footer";
 
 
 const Search = () => {
@@ -108,6 +110,8 @@ const Search = () => {
                     <img src={ryan} className="card" alt="Heart Icon"/>
                 </div>
             </div>
+
+            <BlackFooter/>
         </>
     );
 };
