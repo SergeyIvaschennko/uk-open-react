@@ -1,0 +1,114 @@
+:root {
+    --transport-black: #1E1E1E;
+    --black: black;
+    --white: #FFFFFF;
+    --blue: #4169e1;
+    --grey: #6b6564;
+    --seventy-black: rgba(0, 0, 0, 0.7);
+    --thirty-black: rgba(0, 0, 0, 0.3);
+}
+
+.uk {
+    color: black;
+}
+
+.open {
+    color: #4169e1;
+}
+
+.learn-watch-content-container {
+    width: 100%;
+    background-color: transparent;
+    /*border: 1px red solid;*/
+}
+
+.learn-watch {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: auto;
+    max-width: 880px; /* Ограничивает ширину контента */
+    margin: 0 auto;
+    box-sizing: border-box;
+    /*border: 1px #4728b9 solid;*/
+    gap: 96px;
+}
+
+.learn-watch .space {
+    width: 100%;
+    height: 445px;
+    background-color: transparent;
+    /*border: 1px #30d394 solid;*/
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+}
+
+.date-line {
+    margin-top: 5px;
+}
+
+.more-line {
+    margin-top: 5px;
+}
+
+
+.cover-pic {
+    width: 296px;
+    height: 445px;
+    border-radius: 7px;
+}
+
+.extra-bold {
+    font-size: 26px;
+    font-weight: 800;
+}
+
+.seventy-black {
+    color: var(--seventy-black);
+}
+
+.thirty-black {
+    color: var(--thirty-black);
+    font-size: 23px;
+}
+
+.divider {
+    margin-top: 19px;
+    width: 100%;
+    height: 0.5px;
+    background-color: rgba(150, 150, 150, 0.3);
+    margin-bottom: 19px;
+}
+
+
+.Golos {
+    font-family: 'Golos Text', sans-serif;
+}
+
+.semi-bold {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.review {
+    margin-top: 17px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    color: #77726e;
+}
+
+.custom-span {
+    position: absolute;
+    bottom: 0;
+    font-size: 23px;
+    background-color: rgba(217, 217, 217, 0.3);
+    border-radius: 23px;
+    padding: 8px 16px;
+    display: inline-block; /* чтобы паддинги работали корректно */
+}
+
+
+

@@ -1,7 +1,5 @@
-import { useState, useEffect } from "react";
 import './Home.css';
 import '../../Components/Navbar/Navbar.css';
-import covers from "../../Pics/Component 46.png"
 import harruPotterSearch from "../../Pics/Component 47.png"
 import table from "../../Pics/Component 48.png"
 import burn from "../../Pics/bVk1Mfu4XDw.jpg"

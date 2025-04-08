@@ -1,5 +1,4 @@
 import React, {useEffect, useRef, useState} from "react";
-import burn from "../../Pics/bVk1Mfu4XDw.jpg";
 import marty from "../../Pics/Back-to-the-Future-Featured-Image.jpg";
 import './Search.css';
 import lupa from "../../Pics/Component 13.png";

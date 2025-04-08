@@ -4,13 +4,6 @@
     box-sizing: border-box;
 }
 
-:root {
-    --transport-black: #1E1E1E;
-    --black: black;
-    --white: #FFFFFF;
-    --blue: #4169e1;
-    --grey: #6b6564;
-}
 
 html, body, #root {
     height: 100%;
@@ -100,7 +93,7 @@ html, body, #root {
 
 .logo {
     font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
+    font-weight: 600;
     font-size: 24px;
     color: white;
 }
@@ -122,15 +115,7 @@ html, body, #root {
     text-transform: uppercase;
 }
 
-.slogans-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100vh;
-    width: 100%;
-    max-width: 1600px;
-    padding: 24px 110px;
-}
+
 
 .top-left {
     align-self: flex-start;
