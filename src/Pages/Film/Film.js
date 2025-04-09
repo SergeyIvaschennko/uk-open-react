@@ -52,8 +52,8 @@ const Film = () => {
                 <div className="learn-watch">
                     <div className="table-container">
                         <div className="table-head">
-                            <h1>///levels</h1>
-                            <h1>///type</h1>
+                            <h1>&nbsp;</h1>
+                            <h1>&nbsp;</h1>
                         </div>
                         <div className="table-divider"></div>
                         <div className="table-middle">
