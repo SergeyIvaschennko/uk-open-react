@@ -20,8 +20,12 @@ html, body, #root {
     font-weight: 700;
 }
 
-.medium {
+
+.indent {
     margin-top: 12px;
+}
+
+.medium {
     font-size: 18px;
     font-weight: 400;
 }
@@ -56,6 +60,16 @@ html, body, #root {
     height: 100%;
     position: relative;
     overflow: hidden;
+}
+
+.slogans-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    width: 100%;
+    max-width: 1600px;
+    padding: 24px 110px;
 }
 
 .background-image {

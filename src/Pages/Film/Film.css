@@ -110,5 +110,95 @@
     display: inline-block; /* чтобы паддинги работали корректно */
 }
 
+.Charis {
+    font-family: 'Charis SIL', serif;
+}
+
+.regular {
+    font-size: 40px;
+    font-weight: 400;
+}
+
+
+.table-container {
+    height: auto;
+    width: 100%;
+    border-radius: 20px;
+    border: 1px black solid;
+    background-color: transparent;
+    color: black;
+}
+
+.table-divider {
+    width: 100%;
+    height: 0.5px;
+    background-color: rgba(150, 150, 150, 0.3);
+}
+
+.table-head {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /*border: 1px #ff0000 solid;*/
+    height: auto;
+    padding: 25px 30px;
+}
+
+.table-middle {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    /*border: 1px #ff0000 solid;*/
+    height: auto;
+    padding: 25px 30px 15px 30px;
+}
+
+
+
+
+
+.blue-row {
+    width: 100%;
+    /*height: 46px;*/
+    border-radius: 15px;
+    background-color: #D9EAFD;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    padding: 15px 12px;
+}
+
+.trnsp-row {
+    width: 100%;
+    /*height: 46px;*/
+    background-color: transparent;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    padding: 15px 12px 15px 15px;
+}
+
+
+.eng {
+    position: absolute;
+    left: 90px;
+}
+
+.rus {
+    position: absolute;
+    left: 460px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+
+
 
 

@@ -68,7 +68,7 @@ function WelcomeScreen({ setIsFirstVisit }) {
                 <div className="space">
                     <div>
                         <div className="Montserrat bold transport-black">Найди фильм или сериал</div>
-                        <div className="Montserrat medium grey">Более 200 подборок </div>
+                        <div className="Montserrat medium indent grey">Более 200 подборок </div>
                     </div>
                 </div>
                 <div className="space">
@@ -82,7 +82,7 @@ function WelcomeScreen({ setIsFirstVisit }) {
                         <div className="Montserrat bold transport-black">Сначала слова -</div>
                         <div className="Montserrat bold transport-black">потом магия кино!</div>
                         <div className={"text-space"}>
-                            <div className="Montserrat medium grey"> Да, мы собрали для тебя слова,
+                            <div className="Montserrat medium indent grey"> Да, мы собрали для тебя слова,
                                 которые <span style={{ color: "#4169E1", fontWeight: "600" }}>встречаются в фильме</span>. Выучи и освой их перед просмотром!
                             </div>
                         </div>
@@ -106,7 +106,7 @@ function WelcomeScreen({ setIsFirstVisit }) {
                             <div>
                                 <div className="Montserrat bold white">Ready? Let’s watch!</div>
                                 <div className={"text-space"}>
-                                    <div className="Montserrat medium white">
+                                    <div className="Montserrat medium indent white">
                                         Теперь ты готов к просмотру, а запоминать слова стало намного проще!
                                     </div>
                                 </div>

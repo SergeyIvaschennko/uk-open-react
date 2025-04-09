@@ -2,6 +2,8 @@ import React, {useEffect, useRef, useState} from "react";
 import './Film.css';
 import '../../Components/Navbar/Navbar.css';
 import table from "../../Pics/Component 48.png";
+import Footer from "../../Components/Footer/Footer";
+import BlackFooter from "../../Components/Black Footer/Black Footer";
 
 
 
@@ -43,8 +45,49 @@ const Film = () => {
                 <div className="learn-watch">
                     <div className="divider"></div>
                 </div>
+                <div className="learn-watch">
+                    <div className="Charis regular black">Основной вокабуляр</div>
+                </div>
+                <br/>
+                <div className="learn-watch">
+                    <div className="table-container">
+                        <div className="table-head">
+                            <h1>///levels</h1>
+                            <h1>///type</h1>
+                        </div>
+                        <div className="table-divider"></div>
+                        <div className="table-middle">
+                            <div className="blue-row">
+                                <th className="Montserrat medium grey">#</th>
+                                <th className="Montserrat medium grey eng">Английское слово</th>
+                                <th className="Montserrat medium grey rus">Русский перевод</th>
+                            </div>
+                            <div className="trnsp-row">
+                                <th className="Montserrat medium grey">1</th>
+                                <th className="Montserrat medium grey eng">Apple</th>
+                                <th className="Montserrat medium grey rus">Яблоко</th>
+                            </div>
+                            <div className="trnsp-row">
+                                <th className="Montserrat medium grey">20</th>
+                                <th className="Montserrat medium grey eng">Captain</th>
+                                <th className="Montserrat medium grey rus">Капитан</th>
+                            </div>
+                            <div className="trnsp-row">
+                                <th className="Montserrat medium grey">300</th>
+                                <th className="Montserrat medium grey eng">Head</th>
+                                <th className="Montserrat medium grey rus">Голова</th>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <br/>
+                <div className="learn-watch">
+                    <div className="Charis regular black">Выражения</div>
+                </div>
 
             </div>
+            <BlackFooter/>
         </>
     );
 };
