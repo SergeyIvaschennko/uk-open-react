@@ -10,6 +10,7 @@ import ryan from "../../Pics/image (5).png";
 import Heading from "../../Components/Heading/Heading";
 import Footer from "../../Components/Footer/Footer";
 import BlackFooter from "../../Components/Black Footer/Black Footer";
+import HomeCarousel from "../../Components/Home Carousel/Home-Carousel";
 
 
 const Search = () => {
@@ -50,15 +51,8 @@ const Search = () => {
                 mainHeading="Шедевры"
                 subHeading="Лучшие фильмы"
             />
-            <div className="welcome-page-content-container black-container">
-                <div className="cards-container">
-                    <img src={wof} className="card" alt="Heart Icon"/>
-                    <img src={one} className="card" alt="Heart Icon"/>
-                    <img src={knife} className="card" alt="Heart Icon"/>
-                    <img src={hole} className="card" alt="Heart Icon"/>
-                    <img src={ryan} className="card" alt="Heart Icon"/>
-                </div>
-            </div>
+            <HomeCarousel/>
+
 
 
 
@@ -67,15 +61,7 @@ const Search = () => {
                 mainHeading="24-25"
                 subHeading="Новинки"
             />
-            <div className="welcome-page-content-container black-container">
-                <div className="cards-container">
-                    <img src={wof} className="card" alt="Heart Icon"/>
-                    <img src={one} className="card" alt="Heart Icon"/>
-                    <img src={knife} className="card" alt="Heart Icon"/>
-                    <img src={hole} className="card" alt="Heart Icon"/>
-                    <img src={ryan} className="card" alt="Heart Icon"/>
-                </div>
-            </div>
+            <HomeCarousel/>
 
 
 
