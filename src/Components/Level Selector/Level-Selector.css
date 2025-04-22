@@ -1,0 +1,32 @@
+.level-selector {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: 420px; /* адаптируй под своё */
+    height: 40px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+}
+
+.level-item {
+    flex: 1;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+    z-index: 2;
+    position: relative;
+    transition: color 0.2s ease;
+}
+
+.highlight {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: calc(100% / 6); /* 6 уровней */
+    border: 1px solid black;
+    border-radius: 20px;
+    background-color: white;
+    z-index: 1;
+    transition: transform 0.3s ease;
+    pointer-events: none;
+}

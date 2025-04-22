@@ -4,11 +4,59 @@ import '../../Components/Navbar/Navbar.css';
 import table from "../../Pics/Component 48.png";
 import Footer from "../../Components/Footer/Footer";
 import BlackFooter from "../../Components/Black Footer/Black Footer";
+import Dropdown from "../../Components/Dropdown/Dropdown";
+import {useLocation, useNavigate, useParams} from "react-router-dom";
+import LevelSelector from "../../Components/Level Selector/Level-Selector";
 
 
 
 
 const Film = () => {
+    const { categoryName } = useParams(); // Получаем категорию из URL
+    const [activeCategory, setActiveCategory] = useState(categoryName || 'Fiction');
+
+    useEffect(() => {
+        setActiveCategory(categoryName || 'Fiction');
+    }, [categoryName]);
+
+    const { search } = useLocation(); // Получаем query-параметры из URL
+    const navigate = useNavigate();
+
+    const queryParams = new URLSearchParams(search);
+    const initialAge = queryParams.get('age') || 'Все';
+
+    const categories2 = ['Все', 'Существительные', 'Глаголы', 'Прилагательные', 'Наречия'];
+
+    const [selectedAge, setSelectedAge] = useState(initialAge);
+
+
+    const [isAgeDropdownOpen, setIsAgeDropdownOpen] = useState(false);
+
+    useEffect(() => {
+        // Сброс фильтров при изменении категории
+        setSelectedAge('Части речи');
+        setIsAgeDropdownOpen(false);
+    }, [categoryName]);
+
+
+    // const [subcategories, setSubcategories] = useState(subcategoriesMap['Fiction']);  // Начальное значение - подкатегории для Fiction
+    // const [selectedSubcategory, setSelectedSubcategory] = useState('All categories');
+    //
+    // // Обновляем подкатегории при изменении основной категории
+    // useEffect(() => {
+    //     setSubcategories(subcategoriesMap[activeCategory] || []);
+    //     setSelectedSubcategory('All categories'); // Сбрасываем выбранную подкатегорию при смене основной категории
+    // }, [activeCategory]);
+
+    // useEffect(() => {
+    //     // Обновление URL с фильтрами, включая подкатегорию
+    //     const params = new URLSearchParams();
+    //     if (selectedAge !== 'All ages') params.set('age', selectedAge);
+    //     if (selectedOrigin !== 'All origins') params.set('origin', selectedOrigin);
+    //     if (selectedFormat !== 'All formats') params.set('format', selectedFormat);
+    //
+    //     navigate(`/film/${categoryName}?${params.toString()}`, { replace: true });
+    // }, [selectedCategory, selectedAge, selectedOrigin, selectedFormat, categoryName]);
 
 
     return (
@@ -52,8 +100,15 @@ const Film = () => {
                 <div className="learn-watch">
                     <div className="table-container">
                         <div className="table-head">
-                            <h1>&nbsp;</h1>
-                            <h1>&nbsp;</h1>
+                            <LevelSelector/>
+                            <Dropdown
+                                categories={categories2}
+                                defaultCategory="Age"
+                                selectedCategory={selectedAge}
+                                setSelectedCategory={setSelectedAge}
+                                isOpen={isAgeDropdownOpen}
+                                setIsOpen={setIsAgeDropdownOpen}
+                            />
                         </div>
                         <div className="table-divider"></div>
                         <div className="table-middle">
