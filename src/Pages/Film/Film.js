@@ -1,62 +1,71 @@
 import React, {useEffect, useRef, useState} from "react";
 import './Film.css';
 import '../../Components/Navbar/Navbar.css';
-import table from "../../Pics/Component 48.png";
-import Footer from "../../Components/Footer/Footer";
 import BlackFooter from "../../Components/Black Footer/Black Footer";
-import Dropdown from "../../Components/Dropdown/Dropdown";
-import {useLocation, useNavigate, useParams} from "react-router-dom";
-import LevelSelector from "../../Components/Level Selector/Level-Selector";
+import axios from "axios";
+
+import '../../Components/Dropdown/Dropdown.css';
+import '../../Components/Level Selector/Level-Selector.css';
 
 
-
+const categories2 = ['Все', 'Существительные', 'Глаголы', 'Прилагательные', 'Наречия'];
+const levels = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
 
 const Film = () => {
-    const { categoryName } = useParams(); // Получаем категорию из URL
-    const [activeCategory, setActiveCategory] = useState(categoryName || 'Fiction');
-
-    useEffect(() => {
-        setActiveCategory(categoryName || 'Fiction');
-    }, [categoryName]);
-
-    const { search } = useLocation(); // Получаем query-параметры из URL
-    const navigate = useNavigate();
-
-    const queryParams = new URLSearchParams(search);
-    const initialAge = queryParams.get('age') || 'Все';
-
-    const categories2 = ['Все', 'Существительные', 'Глаголы', 'Прилагательные', 'Наречия'];
-
-    const [selectedAge, setSelectedAge] = useState(initialAge);
 
 
+    const [selectedAge, setSelectedAge] = useState('Все');
+    const [selectedLevel, setSelectedLevel] = useState('A2');
+    const [words, setWords] = useState([]);
     const [isAgeDropdownOpen, setIsAgeDropdownOpen] = useState(false);
 
+    const movieId = 5; // 🔥 Поставим здесь movieId статично или передадим пропсом потом
+
     useEffect(() => {
-        // Сброс фильтров при изменении категории
-        setSelectedAge('Части речи');
-        setIsAgeDropdownOpen(false);
-    }, [categoryName]);
+        const fetchWords = async () => {
+            try {
+                const params = {};
+                if (selectedLevel && selectedLevel !== 'Все') params.level = selectedLevel;
+                if (selectedAge && selectedAge !== 'Все') {
+                    switch (selectedAge) {
+                        case 'Существительные':
+                            params.partOfSpeech = 'noun';
+                            break;
+                        case 'Глаголы':
+                            params.partOfSpeech = 'verb';
+                            break;
+                        case 'Прилагательные':
+                            params.partOfSpeech = 'adjective';
+                            break;
+                        case 'Наречия':
+                            params.partOfSpeech = 'adverb';
+                            break;
+                        default:
+                            break;
+                    }
+                }
 
+                const response = await axios.get(`http://localhost:8080/find/fltr/movie`, {
+                    params: {
+                        movieId,
+                        ...params,
+                    },
+                });
+                // setWords(response.data);
 
-    // const [subcategories, setSubcategories] = useState(subcategoriesMap['Fiction']);  // Начальное значение - подкатегории для Fiction
-    // const [selectedSubcategory, setSelectedSubcategory] = useState('All categories');
-    //
-    // // Обновляем подкатегории при изменении основной категории
-    // useEffect(() => {
-    //     setSubcategories(subcategoriesMap[activeCategory] || []);
-    //     setSelectedSubcategory('All categories'); // Сбрасываем выбранную подкатегорию при смене основной категории
-    // }, [activeCategory]);
+                console.log('Ответ сервера:', response.data); // 👈 Добавь это!
 
-    // useEffect(() => {
-    //     // Обновление URL с фильтрами, включая подкатегорию
-    //     const params = new URLSearchParams();
-    //     if (selectedAge !== 'All ages') params.set('age', selectedAge);
-    //     if (selectedOrigin !== 'All origins') params.set('origin', selectedOrigin);
-    //     if (selectedFormat !== 'All formats') params.set('format', selectedFormat);
-    //
-    //     navigate(`/film/${categoryName}?${params.toString()}`, { replace: true });
-    // }, [selectedCategory, selectedAge, selectedOrigin, selectedFormat, categoryName]);
+// Теперь правильная установка
+                setWords(Array.isArray(response.data) ? response.data : response.data.words || []);
+            } catch (error) {
+                console.error('Ошибка загрузки слов:', error);
+            }
+
+        };
+
+        fetchWords();
+    }, [selectedAge, selectedLevel, movieId]);
+
 
 
     return (
@@ -100,16 +109,17 @@ const Film = () => {
                 <div className="learn-watch">
                     <div className="table-container">
                         <div className="table-head">
-                            <LevelSelector/>
+                            <LevelSelector selectedLevel={selectedLevel} setSelectedLevel={setSelectedLevel}/>
                             <Dropdown
                                 categories={categories2}
-                                defaultCategory="Age"
                                 selectedCategory={selectedAge}
                                 setSelectedCategory={setSelectedAge}
                                 isOpen={isAgeDropdownOpen}
                                 setIsOpen={setIsAgeDropdownOpen}
                             />
                         </div>
+
+                        {/* Таблица */}
                         <div className="table-divider"></div>
                         <div className="table-middle">
                             <div className="blue-row">
@@ -117,22 +127,14 @@ const Film = () => {
                                 <th className="Montserrat medium grey eng">Английское слово</th>
                                 <th className="Montserrat medium grey rus">Русский перевод</th>
                             </div>
-                            <div className="trnsp-row">
-                                <th className="Montserrat medium grey">1</th>
-                                <th className="Montserrat medium grey eng">Apple</th>
-                                <th className="Montserrat medium grey rus">Яблоко</th>
-                            </div>
-                            <div className="trnsp-row">
-                                <th className="Montserrat medium grey">20</th>
-                                <th className="Montserrat medium grey eng">Captain</th>
-                                <th className="Montserrat medium grey rus">Капитан</th>
-                            </div>
-                            <div className="trnsp-row">
-                                <th className="Montserrat medium grey">300</th>
-                                <th className="Montserrat medium grey eng">Head</th>
-                                <th className="Montserrat medium grey rus">Голова</th>
-                            </div>
 
+                            {words.map((word, index) => (
+                                <div key={word.id} className="trnsp-row">
+                                    <th className="Montserrat medium grey">{index + 1}</th>
+                                    <th className="Montserrat medium grey eng">{word.enWord}</th>
+                                    <th className="Montserrat medium grey rus">{word.ruWord}</th>
+                                </div>
+                            ))}
                         </div>
                     </div>
                 </div>
@@ -142,10 +144,6 @@ const Film = () => {
                 </div>
                 <br/>
                 <div className="learn-watch">
-                    {/*<div className="sentences-container">*/}
-                    {/*    <div className="box-eng-sent">fd</div>*/}
-                    {/*    <div className="box-rus-sent">fd</div>*/}
-                    {/*</div>*/}
                     <div className="vocab-list">
                         <div className="row">
                             <div className="term">Once in a blue moon</div>
@@ -172,6 +170,79 @@ const Film = () => {
             </div>
             <BlackFooter/>
         </>
+    );
+};
+
+const LevelSelector = ({ selectedLevel, setSelectedLevel }) => {
+    const activeIndex = levels.indexOf(selectedLevel);
+
+    return (
+        <div className="level-selector">
+            <div
+                className="highlight"
+                style={{ transform: `translateX(${activeIndex * 100}%)` }}
+            />
+            {levels.map((level, index) => (
+                <div
+                    key={level}
+                    className={`level-item ${index === activeIndex ? 'active' : ''}`}
+                    onClick={() => setSelectedLevel(level)}
+                >
+                    {level}
+                </div>
+            ))}
+        </div>
+    );
+};
+
+const Dropdown = ({ categories, selectedCategory, setSelectedCategory, isOpen, setIsOpen }) => {
+    const dropdownRef = useRef(null);
+
+    const toggleDropdown = () => {
+        setIsOpen(!isOpen);
+    };
+
+    const handleCategoryClick = (category) => {
+        setSelectedCategory(category);
+        setIsOpen(false);
+    };
+
+    const handleClickOutside = (event) => {
+        if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+            setIsOpen(false);
+        }
+    };
+
+    useEffect(() => {
+        if (isOpen) {
+            document.addEventListener('mousedown', handleClickOutside);
+        } else {
+            document.removeEventListener('mousedown', handleClickOutside);
+        }
+
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [isOpen]);
+
+    return (
+        <div className="dropdown" ref={dropdownRef}>
+            <button className="dropdown-button" onClick={toggleDropdown}>
+                <div className="default-category">{selectedCategory}</div>
+                <svg className={`arrow ${isOpen ? 'open' : ''}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M19 9l-7 7-7-7" />
+                </svg>
+            </button>
+            {isOpen && (
+                <div className="dropdown-menu">
+                    {categories.map((category, index) => (
+                        <div key={index} className="dropdown-item" onClick={() => handleCategoryClick(category)}>
+                            {category}
+                        </div>
+                    ))}
+                </div>
+            )}
+        </div>
     );
 };
 

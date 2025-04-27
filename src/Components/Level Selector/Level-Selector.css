@@ -2,10 +2,10 @@
     position: relative;
     display: flex;
     justify-content: space-between;
-    width: 420px; /* адаптируй под своё */
+    width: 400px; /* адаптируй под своё */
     height: 40px;
     font-family: 'Montserrat', sans-serif;
-    font-size: 20px;
+    font-size: 19px;
 }
 
 .level-item {
