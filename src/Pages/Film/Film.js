@@ -67,6 +67,29 @@ const Film = () => {
     }, [selectedAge, selectedLevel, movieId]);
 
 
+    const [expressions, setExpressions] = useState([]);
+    useEffect(() => {
+        const fetchExpressions = async () => {
+            try {
+                const response = await axios.get(`http://localhost:8080/find/expressions`, {
+                    params: {
+                        movieId,
+                    },
+                });
+
+                console.log('Expressions:', response.data);
+
+                setExpressions(Array.isArray(response.data) ? response.data : []);
+            } catch (error) {
+                console.error('Ошибка загрузки выражений:', error);
+            }
+        };
+
+        fetchExpressions();
+    }, [movieId]);
+
+
+
 
     return (
         <>
@@ -144,26 +167,36 @@ const Film = () => {
                 </div>
                 <br/>
                 <div className="learn-watch">
+                    {/*<div className="vocab-list">*/}
+                    {/*    <div className="row">*/}
+                    {/*        <div className="term">Once in a blue moon</div>*/}
+                    {/*        <div className="definition">Что-то, что случается редко</div>*/}
+                    {/*    </div>*/}
+                    {/*    <div className="row">*/}
+                    {/*        <div className="term">All in good time</div>*/}
+                    {/*        <div className="definition">*/}
+                    {/*            Выражение используется, когда советуют кому-то набраться терпения, потому что то, чего ждёт человек, обязательно произойдёт через некоторое время*/}
+                    {/*        </div>*/}
+                    {/*    </div>*/}
+                    {/*    <div className="row">*/}
+                    {/*        <div className="term">Day</div>*/}
+                    {/*        <div className="definition">День</div>*/}
+                    {/*    </div>*/}
+                    {/*    <div className="row">*/}
+                    {/*        <div className="term">Map</div>*/}
+                    {/*        <div className="definition">Карта</div>*/}
+                    {/*    </div>*/}
+                    {/*</div>*/}
+
                     <div className="vocab-list">
-                        <div className="row">
-                            <div className="term">Once in a blue moon</div>
-                            <div className="definition">Что-то, что случается редко</div>
-                        </div>
-                        <div className="row">
-                            <div className="term">All in good time</div>
-                            <div className="definition">
-                                Выражение используется, когда советуют кому-то набраться терпения, потому что то, чего ждёт человек, обязательно произойдёт через некоторое время
+                        {expressions.map((expression) => (
+                            <div key={expression.id} className="row">
+                                <div className="term">{expression.enWord}</div>
+                                <div className="definition">{expression.ruWord}</div>
                             </div>
-                        </div>
-                        <div className="row">
-                            <div className="term">Day</div>
-                            <div className="definition">День</div>
-                        </div>
-                        <div className="row">
-                            <div className="term">Map</div>
-                            <div className="definition">Карта</div>
-                        </div>
+                        ))}
                     </div>
+
 
                 </div>
 
