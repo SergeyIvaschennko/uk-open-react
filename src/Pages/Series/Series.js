@@ -1,5 +1,3 @@
-// Series.jsx
-
 import React, { useEffect, useRef, useState } from "react";
 import '../../Pages/Series/Series.css';
 import '../../Components/Navbar/Navbar.css';
@@ -66,7 +64,7 @@ const Series = () => {
                 const response = await axios.get(`http://localhost:8080/find/fltr/series`, {
                     params: {
                         movieId,
-                        seasonId: selectedSeasonId,
+                        // seasonId: selectedSeasonId,
                         episodeId: selectedEpisodeId,
                         ...params,
                     },
@@ -86,10 +84,9 @@ const Series = () => {
     useEffect(() => {
         const fetchExpressions = async () => {
             try {
-                const response = await axios.get(`http://localhost:8080/find/expressions`, {
+                const response = await axios.get(`http://localhost:8080/find/series/expressions`, {
                     params: {
                         movieId,
-                        seasonId: selectedSeasonId,
                         episodeId: selectedEpisodeId,
                     },
                 });
@@ -203,6 +200,7 @@ const Series = () => {
                                 <div className="term">{expression.enWord}</div>
                                 <div className="definition">{expression.ruWord}</div>
                             </div>
+
                         ))}
                     </div>
                 </div>
