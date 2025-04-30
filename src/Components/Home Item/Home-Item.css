@@ -2,6 +2,8 @@
     flex: 0 0 calc((100% - 48px) / 5);
     aspect-ratio: 215 / 323;
     border-radius: 6px;
+    cursor: pointer;
+    pointer-events: auto;
 }
 
 .item-pic {

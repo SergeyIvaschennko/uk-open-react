@@ -51,11 +51,7 @@ const Search = () => {
                 mainHeading="Шедевры"
                 subHeading="Лучшие фильмы"
             />
-            <HomeCarousel/>
-
-
-
-
+            <HomeCarousel endpoint="/top-movies"/>
 
             <Heading
                 mainHeading="24-25"
@@ -63,38 +59,23 @@ const Search = () => {
             />
             <HomeCarousel/>
 
-
-
-
             <Heading
                 mainHeading="Невозможно оторваться"
                 subHeading="Лучшие сериалы"
             />
-            <div className="welcome-page-content-container black-container">
-                <div className="cards-container">
-                    <img src={wof} className="card" alt="Heart Icon"/>
-                    <img src={one} className="card" alt="Heart Icon"/>
-                    <img src={knife} className="card" alt="Heart Icon"/>
-                    <img src={hole} className="card" alt="Heart Icon"/>
-                    <img src={ryan} className="card" alt="Heart Icon"/>
-                </div>
-            </div>
-
-
+            <HomeCarousel endpoint="/top-series"/>
 
             <Heading
                 mainHeading="Мир анимации"
                 subHeading="Лучшие мультфильмы"
             />
-            <div className="welcome-page-content-container black-container">
-                <div className="cards-container">
-                    <img src={wof} className="card" alt="Heart Icon"/>
-                    <img src={one} className="card" alt="Heart Icon"/>
-                    <img src={knife} className="card" alt="Heart Icon"/>
-                    <img src={hole} className="card" alt="Heart Icon"/>
-                    <img src={ryan} className="card" alt="Heart Icon"/>
-                </div>
-            </div>
+            <HomeCarousel/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+
 
             <BlackFooter/>
         </>
