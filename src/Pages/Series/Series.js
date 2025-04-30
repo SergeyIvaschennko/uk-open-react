@@ -5,13 +5,19 @@ import BlackFooter from "../../Components/Black Footer/Black Footer";
 import axios from "axios";
 import '../../Components/Dropdown/Dropdown.css';
 import '../../Components/Level Selector/Level-Selector.css';
+import {useNavigate, useParams} from "react-router-dom";
 
 const categories2 = ['Все', 'Существительные', 'Глаголы', 'Прилагательные', 'Наречия'];
 const levels = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
 
 const Series = () => {
+    const { movieId: movieIdParam } = useParams();
+    const movieId = Number(movieIdParam);
+    const navigate = useNavigate();
+    const [movieMeta, setMovieMeta] = useState(null);
+
     const [selectedAge, setSelectedAge] = useState('Все');
-    const [selectedLevel, setSelectedLevel] = useState('A2');
+    const [selectedLevel, setSelectedLevel] = useState('A1');
     const [seasonsData, setSeasonsData] = useState([]);
     const [selectedSeasonId, setSelectedSeasonId] = useState(null);
     const [selectedEpisodeId, setSelectedEpisodeId] = useState(null);
@@ -22,7 +28,25 @@ const Series = () => {
     const [isSeasonDropdownOpen, setIsSeasonDropdownOpen] = useState(false);
     const [isEpisodeDropdownOpen, setIsEpisodeDropdownOpen] = useState(false);
 
-    const movieId = 1;
+    // const movieId = 1;
+
+    useEffect(() => {
+        const fetchMeta = async () => {
+            try {
+                const response = await axios.get(`http://localhost:8080/${movieId}/movieseries`);
+                const data = response.data;
+                if (data.typeOfContent?.name === "Movie") {
+                    navigate(`/film/${movieId}`);
+                    return;
+                }
+                setMovieMeta(data);
+            } catch (err) {
+                console.error('Ошибка загрузки меты:', err);
+            }
+        };
+
+        fetchMeta();
+    }, [movieId, navigate]);
 
     useEffect(() => {
         const fetchSeasons = async () => {
@@ -112,6 +136,11 @@ const Series = () => {
         }
     };
 
+    if (!movieMeta) return <div></div>;
+
+    const { name, moviesSeriesMeta } = movieMeta;
+    const { description, pic, release } = moviesSeriesMeta;
+
     return (
         <>
             <div className="navbar-container">
@@ -119,23 +148,19 @@ const Series = () => {
                     <div className="logo">
                         <span className="uk">uk</span> <span className="open">open</span>
                     </div>
-                    <button className="start-button">Начать</button>
                 </div>
             </div>
 
             <div className="learn-watch-content-container">
                 <div className="learn-watch">
-                    <img src={'https://media.mustapp.me/must/posters/w342/3NqlBDpWI83TgQ9nmeFwTVxEmtZ.jpg'} className="cover-pic" alt="Cover"/>
+                    <img src={pic} className="cover-pic" alt="Poster"/>
                     <div className="space">
                         <div>
-                            <div className="Montserrat extra-bold seventy-black">Пацаны</div>
-                            <div className="Montserrat extra-bold thirty-black date-line">2019 - наши дни</div>
+                            <div className="Montserrat extra-bold seventy-black">{name}</div>
+                            <div className="Montserrat extra-bold thirty-black date-line">{release}</div>
                             <div className="divider"></div>
                             <div className="Golos semi-bold seventy-black">Обзор</div>
-                            <div className="review">
-                                Действие сериала разворачивается в 2000-е в мире, где существуют супергерои. Именно они являются настоящими звёздами, которых все знают и обожают...
-                            </div>
-
+                            <div className="review">{description}</div>
                             <DropdownSeason
                                 seasons={seasonsData}
                                 selectedSeasonId={selectedSeasonId}

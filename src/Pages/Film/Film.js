@@ -6,20 +6,56 @@ import axios from "axios";
 
 import '../../Components/Dropdown/Dropdown.css';
 import '../../Components/Level Selector/Level-Selector.css';
+import {useNavigate, useParams} from "react-router-dom";
 
 
 const categories2 = ['Все', 'Существительные', 'Глаголы', 'Прилагательные', 'Наречия'];
 const levels = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
 
 const Film = () => {
-
+    const { movieId: movieIdParam } = useParams();
+    const movieId = Number(movieIdParam);
+    const navigate = useNavigate();
+    const [movieMeta, setMovieMeta] = useState(null);
 
     const [selectedAge, setSelectedAge] = useState('Все');
     const [selectedLevel, setSelectedLevel] = useState('A2');
     const [words, setWords] = useState([]);
     const [isAgeDropdownOpen, setIsAgeDropdownOpen] = useState(false);
 
-    const movieId = 5; // 🔥 Поставим здесь movieId статично или передадим пропсом потом
+    // const movieId = 5; // 🔥 Поставим здесь movieId статично или передадим пропсом потом
+
+    // useEffect(() => {
+    //     const fetchMeta = async () => {
+    //         try {
+    //             const response = await axios.get(`http://localhost:8080/${movieId}/movieseries`);
+    //             setMovieMeta(response.data);
+    //         } catch (err) {
+    //             console.error('Ошибка загрузки меты:', err);
+    //         }
+    //     };
+    //
+    //     fetchMeta();
+    // }, [movieId]);
+
+    useEffect(() => {
+        const fetchMeta = async () => {
+            try {
+                const response = await axios.get(`http://localhost:8080/${movieId}/movieseries`);
+                const data = response.data;
+                if (data.typeOfContent?.name === "TV Show") {
+                    navigate(`/series/${movieId}`);
+                    return;
+                }
+                setMovieMeta(data);
+            } catch (err) {
+                console.error('Ошибка загрузки меты:', err);
+            }
+        };
+
+        fetchMeta();
+    }, [movieId, navigate]);
+
 
     useEffect(() => {
         const fetchWords = async () => {
@@ -89,6 +125,11 @@ const Film = () => {
     }, [movieId]);
 
 
+    if (!movieMeta) return <div></div>;
+
+    const { name, moviesSeriesMeta } = movieMeta;
+    const { description, pic, emoji, release } = moviesSeriesMeta;
+
 
 
     return (
@@ -98,26 +139,19 @@ const Film = () => {
                     <div className="logo">
                         <span className="uk">uk</span> <span className="open">open</span>
                     </div>
-                    <button className="start-button">Начать</button>
                 </div>
             </div>
             <div className="learn-watch-content-container">
                 <div className="learn-watch">
-                    <img src={'https://media.mustapp.me/must/posters/w342/s8nco4vYuVwWFvxXR3vyGmS5K7F.jpg'} className="cover-pic" alt="Heart Icon"/>
+                    <img src={pic} className="cover-pic" alt="Poster"/>
                     <div className="space">
                         <div>
-                            <div className="Montserrat extra-bold seventy-black">Отпуск по обмену</div>
-                            <div className="Montserrat extra-bold thirty-black date-line">8 декабря 2006</div>
+                            <div className="Montserrat extra-bold seventy-black">{name}</div>
+                            <div className="Montserrat extra-bold thirty-black date-line">{release}</div>
                             <div className="divider"></div>
                             <div className="Golos semi-bold seventy-black">Обзор</div>
-                            <div className="review">
-                                Айрис Симпкинс, автор популярной свадебной колонки в лондонской «Daily Telegraph», живет в очаровательном коттедже в английской провинции.
-                                Она влюблена в мужчину, который любит другую. Далеко от нее в Южной Калифорнии живет Аманда Вудс, владелица процветающего рекламного агентства,
-                                занимающегося созданием роликов для фильмов. Она вдруг обнаруживает, что любимый человек ей изменяет.Две незнакомые друг с другом женщины, живущие на расстоянии 10 000 километров друг от друга,
-                                оказываются в сходной ситуации. И они находят друг друга. В Интернете, на сайте обмена жильем на время отпуска. Перед Рождеством Айрис и Аманда решают отдохнуть от своих проблем, договорившись
-                                поменяться континентами и пожить друг у друга в течение двух недель.
-                            </div>
-                            <span className="custom-span">🎄&nbsp;&nbsp;❤️️&nbsp;&nbsp;✈️&nbsp;&nbsp;🏴󠁧󠁢󠁥󠁮󠁧󠁿</span>
+                            <div className="review">{description}</div>
+                            <span className="custom-span">{emoji}</span>
                         </div>
                     </div>
                 </div>
