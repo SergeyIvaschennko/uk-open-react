@@ -6,7 +6,7 @@ import axios from "axios";
 
 import '../../Components/Dropdown/Dropdown.css';
 import '../../Components/Level Selector/Level-Selector.css';
-import {useNavigate, useParams} from "react-router-dom";
+import {Link, useNavigate, useParams} from "react-router-dom";
 
 
 const categories2 = ['Все', 'Существительные', 'Глаголы', 'Прилагательные', 'Наречия'];
@@ -136,9 +136,9 @@ const Film = () => {
         <>
             <div className="navbar-container">
                 <div className="navbar">
-                    <div className="logo">
+                    <Link to="/home" className="logo">
                         <span className="uk">uk</span> <span className="open">open</span>
-                    </div>
+                    </Link>
                 </div>
             </div>
             <div className="learn-watch-content-container">

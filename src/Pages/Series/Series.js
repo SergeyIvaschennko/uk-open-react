@@ -5,7 +5,7 @@ import BlackFooter from "../../Components/Black Footer/Black Footer";
 import axios from "axios";
 import '../../Components/Dropdown/Dropdown.css';
 import '../../Components/Level Selector/Level-Selector.css';
-import {useNavigate, useParams} from "react-router-dom";
+import {Link, useNavigate, useParams} from "react-router-dom";
 
 const categories2 = ['Все', 'Существительные', 'Глаголы', 'Прилагательные', 'Наречия'];
 const levels = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
@@ -145,9 +145,9 @@ const Series = () => {
         <>
             <div className="navbar-container">
                 <div className="navbar">
-                    <div className="logo">
+                    <Link to="/home" className="logo">
                         <span className="uk">uk</span> <span className="open">open</span>
-                    </div>
+                    </Link>
                 </div>
             </div>
 
