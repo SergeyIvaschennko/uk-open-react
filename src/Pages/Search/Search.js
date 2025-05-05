@@ -72,12 +72,6 @@ const Search = () => {
                             {/*<div className="search-overlay">*/}
                                 <div className="Montserrat bold white">Поиск</div>
                                 <p>Более 200 фильмов, сериалов и мультфильмов!</p>
-                                {/*<div className="search-box">*/}
-                                {/*    <input type="text" placeholder="Назад в будущее..."/>*/}
-                                {/*    <button>*/}
-                                {/*        <img src={lupa} alt="иконка" width="20" height="20" />*/}
-                                {/*    </button>*/}
-                                {/*</div>*/}
                                 <div className="search-box">
                                     <input
                                         type="text"
@@ -94,8 +88,15 @@ const Search = () => {
                                     <div className="search-results">
                                         {results.length > 0 ? (
                                             results.map(item => (
+                                                // <div key={item.id} className="result-item" onClick={() => handleRedirect(item)}>
+                                                //     {item.name}
+                                                // </div>
                                                 <div key={item.id} className="result-item" onClick={() => handleRedirect(item)}>
-                                                    {item.name}
+                                                    <div className="result-thumbnail-wrapper">
+                                                        <img src={item.moviesSeriesMeta.pic} alt={item.name} className="result-thumbnail" />
+                                                    </div>
+                                                    <div className="result-title">{item.name}</div>
+                                                    <div className="result-year">{item.moviesSeriesMeta.year}</div>
                                                 </div>
                                             ))
                                         ) : (
