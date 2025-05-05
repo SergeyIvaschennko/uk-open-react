@@ -14,29 +14,31 @@ import knife from "../../Pics/image (3).png"
 import hole from "../../Pics/image (4).png"
 import ryan from "../../Pics/image (5).png"
 import Footer from "../../Components/Footer/Footer";
+import Search from "../Search/Search";
+import {useEffect, useState} from "react";
 
 function App() {
-    // const [isFirstVisit, setIsFirstVisit] = useState(false);
-    //
-    // useEffect(() => {
-    //     const visited = localStorage.getItem("visited");
-    //     if (!visited) {
-    //         setIsFirstVisit(true);
-    //         localStorage.setItem("visited", "true"); // Запоминаем пользователя
-    //     }
-    // }, []);
+    const [isFirstVisit, setIsFirstVisit] = useState(false);
+
+    useEffect(() => {
+        const visited = localStorage.getItem("visited");
+        if (!visited) {
+            setIsFirstVisit(true);
+            localStorage.setItem("visited", "true"); // Запоминаем пользователя
+        }
+    }, []);
 
     return (
-        // <div>
-        //     {isFirstVisit ? <WelcomeScreen setIsFirstVisit={setIsFirstVisit} /> : <MainScreen />}
-        // </div>
         <div>
-             <WelcomeScreen/>
+            {isFirstVisit ? <WelcomeScreen setIsFirstVisit={setIsFirstVisit} /> : <Search />}
         </div>
     );
 }
 
 function WelcomeScreen({ setIsFirstVisit }) {
+    const handleStart = () => {
+        setIsFirstVisit(false);
+    };
     return (
         <>
             <div className="home-container">
@@ -48,7 +50,9 @@ function WelcomeScreen({ setIsFirstVisit }) {
                                     <div className="logo">
                                         <span>uk open</span>
                                     </div>
-                                    <button className="start-button">Начать</button>
+                                    <button className="start-button" onClick={handleStart}>
+                                        Начать
+                                    </button>
                                 </div>
                             </div>
                             <div className="slogans-container">
@@ -63,16 +67,17 @@ function WelcomeScreen({ setIsFirstVisit }) {
             </div>
 
 
-
-            <div className="welcome-page-content-container grey-container">
-                <div className="space">
-                    <div>
-                        <div className="Montserrat bold transport-black">Найди фильм или сериал</div>
-                        <div className="Montserrat medium indent grey">Более 200 подборок </div>
+            <div className="grey-container">
+                <div className="welcome-page-content-container">
+                    <div className="space">
+                        <div>
+                            <div className="Montserrat bold transport-black">Найди фильм или сериал</div>
+                            <div className="Montserrat medium indent grey">Более 200 подборок </div>
+                        </div>
                     </div>
-                </div>
-                <div className="space">
-                    <img src={harruPotterSearch} className="harrypotter-search" alt="Heart Icon"/>
+                    <div className="space">
+                        <img src={harruPotterSearch} className="harrypotter-search" alt="Heart Icon"/>
+                    </div>
                 </div>
             </div>
 

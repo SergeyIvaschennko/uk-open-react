@@ -136,7 +136,7 @@ const Film = () => {
         <>
             <div className="navbar-container">
                 <div className="navbar">
-                    <Link to="/home" className="logo">
+                    <Link to="/" className="logo">
                         <span className="uk">uk</span> <span className="open">open</span>
                     </Link>
                 </div>

@@ -167,14 +167,13 @@ html, body, #root {
 }
 
 /* Welcome page containers */
-.welcome-page-content-container {
+.welcome-page-content-container{
     max-width: 1600px;
     margin: 0 auto;
-    padding: 0 112px;
+    padding: 48px 112px 64px 112px;
     display: flex;
+    justify-content: space-between;
     box-sizing: border-box;
-    position: relative;
-    overflow: hidden;
 }
 
 .logo-container {
@@ -183,8 +182,7 @@ html, body, #root {
 
 .grey-container {
     background-color: rgba(244, 244, 244, 0.5);
-    justify-content: space-between;
-    padding: 48px 112px 64px 112px;
+    width: 100%;
 }
 
 .white-container {

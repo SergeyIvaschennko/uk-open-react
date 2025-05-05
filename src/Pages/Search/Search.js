@@ -2,13 +2,7 @@ import React, {useEffect, useRef, useState} from "react";
 import marty from "../../Pics/Back-to-the-Future-Featured-Image.jpg";
 import './Search.css';
 import lupa from "../../Pics/Component 13.png";
-import wof from "../../Pics/image (1).png";
-import one from "../../Pics/image (2).png";
-import knife from "../../Pics/image (3).png";
-import hole from "../../Pics/image (4).png";
-import ryan from "../../Pics/image (5).png";
 import Heading from "../../Components/Heading/Heading";
-import Footer from "../../Components/Footer/Footer";
 import BlackFooter from "../../Components/Black Footer/Black Footer";
 import HomeCarousel from "../../Components/Home Carousel/Home-Carousel";
 import {Link, useNavigate} from "react-router-dom";
@@ -55,6 +49,8 @@ const Search = () => {
         }
     };
 
+
+
     return (
         <>
             <div className="search-container">
@@ -78,6 +74,7 @@ const Search = () => {
                                         placeholder="Назад в будущее..."
                                         value={query}
                                         onChange={(e) => setQuery(e.target.value)}
+                                        onFocus={() => setShowResults(true)}
                                     />
                                     <button>
                                         <img src={lupa} alt="иконка" width="20" height="20" />
