@@ -11,6 +11,8 @@ const HomeItem = ({ id, name, imageSrc, typeOfContent }) => {
             navigate(`/film/${id}`);
         } else if (typeOfContent === 'TV Show') {
             navigate(`/series/${id}`);
+        } else if (typeOfContent === 'Cartoon') {
+            navigate(`/film/${id}`);
         } else {
             console.warn('Неизвестный тип контента:', typeOfContent);
         }

@@ -6,13 +6,11 @@ const BlackFooter = () => {
         <div className="black-footer">
             <div className="footer-container">
                 <div className="black-footer-logo">uk open</div>
-                <div className="black-footer-links">About us</div>
-                <div className="black-footer-links">Payment</div>
-                <div className="black-footer-links">Support</div>
-                <div className="black-footer-links">For authors</div>
-                <div className="black-footer-links">Policy</div>
-                <div className="black-footer-links">Business</div>
-                <div className="black-footer-links">Return</div>
+                <div className="black-footer-links">О нас</div>
+                <div className="black-footer-links">Поддержка</div>
+                <div className="black-footer-links">Для авторов</div>
+                <div className="black-footer-links">Политика</div>
+                <div className="black-footer-links">Бизнес</div>
             </div>
             <div className="footer-container">
                 <div className="black-footer-copyright">© 2025 All rights are reserved</div>

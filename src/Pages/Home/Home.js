@@ -28,11 +28,27 @@ function App() {
         }
     }, []);
 
+    // return (
+    //     <div>
+    //         {isFirstVisit ? <WelcomeScreen setIsFirstVisit={setIsFirstVisit} /> : <Search />}
+    //     </div>
+    // );
     return (
         <div>
-            {isFirstVisit ? <WelcomeScreen setIsFirstVisit={setIsFirstVisit} /> : <Search />}
+            {isFirstVisit ? (
+                <>
+                    {console.log("Показываем WelcomeScreen")}
+                    <WelcomeScreen setIsFirstVisit={setIsFirstVisit} />
+                </>
+            ) : (
+                <>
+                    {console.log("Показываем Search")}
+                    <Search />
+                </>
+            )}
         </div>
     );
+
 }
 
 function WelcomeScreen({ setIsFirstVisit }) {
@@ -124,11 +140,11 @@ function WelcomeScreen({ setIsFirstVisit }) {
                     <img src={curvetext} alt="Main" className="curve-text"/>
                     <div className="welcome-page-content-container black-container">
                         <div className="cards-container">
-                            <img src={wof} className="card" alt="Heart Icon"/>
-                            <img src={one} className="card" alt="Heart Icon"/>
-                            <img src={knife} className="card" alt="Heart Icon"/>
-                            <img src={hole} className="card" alt="Heart Icon"/>
-                            <img src={ryan} className="card" alt="Heart Icon"/>
+                            <img src={"https://ru-images.kinorium.com/movie/1080/1545339.jpg?1683884685"} className="card" alt="Heart Icon"/>
+                            <img src={"https://images-s.kinorium.com/movie/poster/143897/w1500_51624472.jpg"} className="card" alt="Heart Icon"/>
+                            <img src={"https://images.kinorium.com/movie/poster/472809/w1500_51624360.jpg"} className="card" alt="Heart Icon"/>
+                            <img src={"https://images.kinorium.com/movie/poster/352641/w1500_54591633.jpg"} className="card" alt="Heart Icon"/>
+                            <img src={"https://ru-images.kinorium.com/movie/1080/8539142.jpg?1721051478"} className="card" alt="Heart Icon"/>
                         </div>
                     </div>
                     <Footer/>

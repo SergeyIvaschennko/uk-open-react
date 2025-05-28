@@ -42,7 +42,7 @@ const Search = () => {
     }, [query]);
 
     const handleRedirect = (item) => {
-        if (item.typeOfContent?.name === 'Movie') {
+        if (item.typeOfContent?.name === 'Movie' || item.typeOfContent?.name === 'Cartoon') {
             navigate(`/film/${item.id}`);
         } else if (item.typeOfContent?.name === 'TV Show') {
             navigate(`/series/${item.id}`);
@@ -59,7 +59,7 @@ const Search = () => {
                     <div className="overlay">
                         <div className="navbar-container">
                             <div className="navbar">
-                                <Link to="/home" className="logo">
+                                <Link to="/" className="logo">
                                     <span>uk open</span>
                                 </Link>
                             </div>
@@ -97,7 +97,8 @@ const Search = () => {
                                                 </div>
                                             ))
                                         ) : (
-                                            <div className="result-item">Ничего не найдено</div>
+                                            // <div className="result-item">Ничего не найдено</div>
+                                            <div></div>
                                         )}
                                     </div>
                                 )}
@@ -132,7 +133,7 @@ const Search = () => {
                 mainHeading="Мир анимации"
                 subHeading="Лучшие мультфильмы"
             />
-            <HomeCarousel/>
+            <HomeCarousel endpoint="/top-cartoons"/>
             <br/>
             <br/>
             <br/>
